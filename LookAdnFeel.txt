@@ -1,0 +1,83 @@
+Some basic knowledge of CSS is helpful if you plan on using the Extra CSS box. However, if you are unfamilar with css here are the basics codes I use and what each one does.
+
+body { margin: 0; }
+p {margin-top: 0pt; margin-bottom: 0pt; padding: 0pt; text-indent: 15pt; text-align: justify;}
+h1 { text-align: center; }
+h2 {text-align: center; font-weight: 600; font-size: x-large; padding-bottom: 20pt; page-break-before: always;}
+h3 { text-align: center; padding-bottom: 20pt; font-weight: 600; font-size: xx-large }
+h4 { text-align: center; }
+h5 { text-align: center; }
+h6 { text-align: center; }
+img {text-align: center;}
+
+body = <body> = this is where I set my body margin so on the device I don't have any margins.
+
+p = <p> = paragraph tag. This is probably the most important tag if you want to specify how you want your paragraphs to look like. I always indent my paragraphs and remove any extra line space between them because it requires less pages on the device to flip through so the battery will last longer.
+
+I have mine set to remove any margins before and after, no extra padding, a specific text-indent, and to always justify the text. The more css you know the more you can do with your paragraphs. However, since I'm mostly formatting for fiction reading I've kept it simple.
+
+h2 = <h2> = Heading 2 - this is where I specify how I want my headers to look like. I do like my chapters to start on a fresh page so I added this code page-break-before: always; another important code is the padding-bottom: 20pt which adds some space after the Header. You can also adjust the font size and alignment.
+
+Another code that I find useful is the page-break-before: always; this code forces a page break before each chapter heading so that the chapter header starts on a new page. It's not necessary, however it's aesthetically pleasing so I add it to my <h2> css code.
+
+h3 = <h3> = Heading 3 - I use this for my Title and Author on the front page.
+
+img = <img src=""> = Images and illustrations. This tag will only work for mobipocket to center your images.
+
+The Extra CSS box is where you would add your embed font code if you had plans to embed fonts. (something I have not tested yet so cannot provide details on how it is done personally)
+
+Tip: do not add page-break-before: always on multiple headers if you plan on using two headers on one page.
+
+HTML Cheatsheet
+
+(I keep all these codes on a notepad so when I'm formatting I can refer back to it)
+
+Insert a pagebreak into your document not just at chapter headers.
+
+<p style="page-break-after:always">&nbsp;</p>
+
+Prevent a Paragraph Indent
+
+<p style="text-indent: 0pt"> </p>
+
+Add a space between paragraphs
+
+<p>&nbsp;</p>
+
+Center your images
+
+<div style="text-align:center">
+<img>
+</div>
+
+LRF/MOBI - Look and Feed CSS
+
+body { margin: 0; }
+p {margin-top: 0pt; margin-bottom: 0pt; padding: 0pt; text-indent: 15pt; text-align: justify;}
+h1 { text-align: center; }
+h2 {text-align: center; font-size: larger; padding-bottom: 20pt; page-break-before: always;}
+h3 { text-align: center; padding-bottom: 20pt; }
+h4 { text-align: center; }
+h5 { text-align: center; }
+h6 { text-align: center; }
+EPUB - Look and Feel CSS
+
+body { margin: 0; }
+p {margin-top: 0pt; margin-bottom: 0pt; padding: 0pt; text-indent: 15pt; text-align: justify;}
+h1 { text-align: center; }
+h2 {text-align: center; font-weight: 600; font-size: x-large; padding-bottom: 20pt; page-break-before: always;}
+h3 { text-align: center; padding-bottom: 20pt; font-weight: 600; font-size: xx-large }
+h4 { text-align: center; }
+h5 { text-align: center; }
+h6 { text-align: center; }
+
+HR elements (I do not use this one often. I normally use *** as a section seperator) 
+hr { 
+width: 20%; 
+text-align: center;
+padding-top: 2px;
+padding-bottom: 2px;
+border: 1px solid black; 
+background-color: black; 
+margin-left: 40%;
+}
