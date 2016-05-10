@@ -1,3 +1,4 @@
+> 整个过程学习自：[制作Kindle mobi书籍完美教程](https://www.douban.com/note/194849341/)
 #txt转mobi
 - 用来将粗txt文件转成带目录，有一点格式的mobi文件。需要用到[Calibre](https://calibre-ebook.com/download)软件
 - 首先使用PreprocessText文件夹中的java代码对txt文件进行预处理，它做的工作有：删除段前空格并用两个全角空格代替、对章和卷名用markdown标记
