@@ -4,7 +4,7 @@ import java.io.*;
 import java.io.Reader;
 
 public class UnicodeReader extends Reader {
-//½â¾öjava¶ÁÈ¡utf-8ÎÄ¼şµÄÂÒÂëÎÊÌâ
+//è§£å†³javaè¯»å–utf-8æ–‡ä»¶çš„ä¹±ç é—®é¢˜
 	PushbackInputStream internalIn;
 	InputStreamReader internalIn2 = null;
 	String defaultEnc;
