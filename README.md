@@ -10,6 +10,7 @@
 
 ##calibre处理
 - 这个软件比较简单好用，要注意的就是添加如下CSS样式
+-     > http://amalthia.mediawood.net/tutorials/ebooks/look.html
 MyCSS:
 <pre>
 <code>
@@ -19,7 +20,7 @@ h1 { text-align: center; padding-top: 12pt; page-break-before: always;}
 h2 {text-align: center; font-weight: 700; font-size: xx-large; padding-bottom: 20pt; page-break-before: always;}
 </code>
 </pre>
-    > http://amalthia.mediawood.net/tutorials/ebooks/look.html
+
 
 
 # TXT2MOBI
