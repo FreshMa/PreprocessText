@@ -9,8 +9,8 @@
 - 用java读取utf-8格式的时候会产生乱码，所以用到了[UnicodeReader.java](http://akini.mbnet.fi/java/unicodereader/UnicodeReader.java.txt)文件进行乱码的处理
 
 ##calibre处理
-- 这个软件比较简单好用，要注意的就是添加如下CSS样式
-    > http://amalthia.mediawood.net/tutorials/ebooks/look.html
+这个软件比较简单好用，要注意的就是添加如下CSS样式
+
 MyCSS:
 <pre>
 <code>
@@ -20,7 +20,7 @@ h1 { text-align: center; padding-top: 12pt; page-break-before: always;}
 h2 {text-align: center; font-weight: 700; font-size: xx-large; padding-bottom: 20pt; page-break-before: always;}
 </code>
 </pre>
-
+> http://amalthia.mediawood.net/tutorials/ebooks/look.html
 
 
 # TXT2MOBI
