@@ -10,7 +10,7 @@
 
 ##calibre处理
 - 这个软件比较简单好用，要注意的就是添加如下CSS样式
--     > http://amalthia.mediawood.net/tutorials/ebooks/look.html
+    > http://amalthia.mediawood.net/tutorials/ebooks/look.html
 MyCSS:
 <pre>
 <code>
