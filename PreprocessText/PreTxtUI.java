@@ -62,7 +62,7 @@ public class PreTxtUI extends JFrame {
 		MessageLabel = new JLabel();
 		spaceButton = new JButton("del space");
 		chapterButton = new JButton("detect chapter");
-//°´Å¥Ò»¿ªÊ¼²»¿Éµã»÷
+//æŒ‰é’®ä¸€å¼€å§‹ä¸å¯ç‚¹å‡»
 		spaceButton.setEnabled(false);
 		chapterButton.setEnabled(false);
 		
@@ -81,7 +81,7 @@ public class PreTxtUI extends JFrame {
 		this.setJMenuBar(menuBar);
 		this.add(labelPanel, BorderLayout.CENTER);
 		this.add(buttonPanel, BorderLayout.SOUTH);
-		//´ò¿ªÎÄ¼ş
+		//æ‰“å¼€æ–‡ä»¶
 		open.addActionListener(new ActionListener() {
 			
 			@Override
@@ -100,18 +100,18 @@ public class PreTxtUI extends JFrame {
 					public boolean accept(File f) {
 						// TODO Auto-generated method stub
 						if(f.isDirectory()) 
-							//¿ÉÄÜÎÄ¼ş¼ĞÀï±ßÒ²°üº¬×ÅtxtÎÄ¼ş
+							//å¯èƒ½æ–‡ä»¶å¤¹é‡Œè¾¹ä¹ŸåŒ…å«ç€txtæ–‡ä»¶
 							return true;
 						else
 							return f.getName().endsWith(getDescription());
 					}
 				});
-				fileChooser.showDialog(new JLabel(),"Ñ¡Ôñ");
+				fileChooser.showDialog(new JLabel(),"é€‰æ‹©");
 				file = fileChooser.getSelectedFile(); 
 				//System.out.println(fileChooser.getSelectedFile().getName());
 				if(file.isFile()&&file.exists()){
 					setLabel(file.getPath() +" is selected!");
-					//Ñ¡ÖĞÎÄ¼şÖ®ºó¿ÉÒÔµã»÷È¥³ı¿Õ¸ñ
+					//é€‰ä¸­æ–‡ä»¶ä¹‹åå¯ä»¥ç‚¹å‡»å»é™¤ç©ºæ ¼
 					spaceButton.setEnabled(true);
 				}
 				else{
@@ -121,7 +121,7 @@ public class PreTxtUI extends JFrame {
 				
 			}
 		});
-		//Í³Ò»¿Õ¸ñ¸ñÊ½£¬Ã¿¶Î¿ªÍ·Á½¸öÈ«½Ç¿Õ¸ñ
+		//ç»Ÿä¸€ç©ºæ ¼æ ¼å¼ï¼Œæ¯æ®µå¼€å¤´ä¸¤ä¸ªå…¨è§’ç©ºæ ¼
 		spaceButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -133,17 +133,17 @@ public class PreTxtUI extends JFrame {
 					
 					String lineTxt = null;
 					String outFileDes = "D:/imFile.txt";
-					String spaceRegex = "(^[\\s|¡¡]*)(.*)";
+					String spaceRegex = "(^[\\s|ã€€]*)(.*)";
 					Pattern spacePattern = Pattern.compile(spaceRegex);
 					imFile = new File(outFileDes);
 					imFile.createNewFile();
-					//true£¬´ú±íappend·½Ê½
+					//trueï¼Œä»£è¡¨appendæ–¹å¼
 					BufferedWriter out= new BufferedWriter(new FileWriter(imFile,true));
-					//°´ĞĞ¶ÁÈ¡²¢°´ĞĞĞ´ÈëĞÂÎÄ¼şÖĞ£¬fileWriterÓĞnewLine()·½·¨£¬Ã¿´ÎÔÚĞÂµÄÒ»ĞĞÉÏÌí¼Ó
+					//æŒ‰è¡Œè¯»å–å¹¶æŒ‰è¡Œå†™å…¥æ–°æ–‡ä»¶ä¸­ï¼ŒfileWriteræœ‰newLine()æ–¹æ³•ï¼Œæ¯æ¬¡åœ¨æ–°çš„ä¸€è¡Œä¸Šæ·»åŠ 
 					while((lineTxt = bfReader.readLine())!=null){
 						Matcher spaceMatcher = spacePattern.matcher(lineTxt);
 						if(spaceMatcher.find()){
-							lineTxt = "¡¡¡¡"+spaceMatcher.group(2);
+							lineTxt = "ã€€ã€€"+spaceMatcher.group(2);
 						}
 						else{
 							System.out.println("Not found!");
@@ -157,17 +157,17 @@ public class PreTxtUI extends JFrame {
 					out.close();
 					bfReader.close();
 					setLabel("space replace Success");
-					//È¥³ı¿Õ¸ñÖ®ºó¿ÉÒÔ¼ÓmarkDown±ê¼Ç
+					//å»é™¤ç©ºæ ¼ä¹‹åå¯ä»¥åŠ markDownæ ‡è®°
 					chapterButton.setEnabled(true);
 					
 				} catch (Exception e2) {
 					// TODO: handle exception
-					System.out.println("open/save error£¡");
+					System.out.println("open/save errorï¼");
 					e2.printStackTrace();
 				}
 			}
 		});
-		//¸øÃ¿Ò»¾íÃûºÍÕÂÃûÌí¼ÓmarkDown±ê¼Ç£¬¾íÓÃ"#"±ê¼Ç(h1)£¬ÕÂÓÃ¡°##¡±±ê¼Ç(h2)
+		//ç»™æ¯ä¸€å·åå’Œç« åæ·»åŠ markDownæ ‡è®°ï¼Œå·ç”¨"#"æ ‡è®°(h1)ï¼Œç« ç”¨â€œ##â€æ ‡è®°(h2)
 		chapterButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -178,8 +178,8 @@ public class PreTxtUI extends JFrame {
 					BufferedReader desBfReader = new BufferedReader(new UnicodeReader(in2, Charset.defaultCharset().name()));
 					String desLine = null;
 
-					String desRegexVol = "^[¡¡]*µÚ[0123456789Ò»¶şÈıËÄÎåÁùÆß°Ë¾ÅÊ®°ÙÇ§]+¾í.*";
-					String desRegexChap = "^[¡¡]*µÚ[0123456789Ò»¶şÈıËÄÎåÁùÆß°Ë¾ÅÊ®°ÙÇ§]+ÕÂ.*";
+					String desRegexVol = "^[ã€€]*ç¬¬[0123456789ä¸€äºŒä¸‰å››äº”å…­ä¸ƒå…«ä¹åç™¾åƒ]+å·.*";
+					String desRegexChap = "^[ã€€]*ç¬¬[0123456789ä¸€äºŒä¸‰å››äº”å…­ä¸ƒå…«ä¹åç™¾åƒ]+ç« .*";
 					Pattern volPattern = Pattern.compile(desRegexVol);
 					Pattern chaPattern = Pattern.compile(desRegexChap);
 					
@@ -209,7 +209,7 @@ public class PreTxtUI extends JFrame {
 					
 					desWriter.close();
 					desBfReader.close();
-					//É¾³ıÖĞ¼äÎÄ¼ş
+					//åˆ é™¤ä¸­é—´æ–‡ä»¶
 					if(imFile.isFile()&&imFile.exists()){
 						imFile.delete();
 					}
@@ -223,7 +223,7 @@ public class PreTxtUI extends JFrame {
 			}
 		});
 		
-		//¹ØÓÚµÄÊÂ¼ş
+		//å…³äºçš„äº‹ä»¶
 		about.addActionListener(new ActionListener() {
 			
 			@Override
