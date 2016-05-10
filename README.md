@@ -1,5 +1,5 @@
 #txt转mobi
-- 用来将粗txt文件转成带目录，有一点格式的mobi文件。需要用到[Calibre](https://calibre-ebook.com/download)软件：
+- 用来将粗txt文件转成带目录，有一点格式的mobi文件。需要用到[Calibre](https://calibre-ebook.com/download)软件
 - 首先使用PreprocessText文件夹中的java代码对txt文件进行预处理，它做的工作有：删除段前空格并用两个全角空格代替、对章和卷名用markdown标记
 - 然后使用Calibre软件进行转换，需要用到的CSS文件在下面附上了
  
