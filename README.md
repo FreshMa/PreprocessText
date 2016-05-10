@@ -7,7 +7,7 @@
 - Package PreprocessText includes three java files which provide a tool to pre-processing txt files.
 - And txt files are recommended to be saved as utf-8.
 - Use UnicodeReader.java to solve the messy code while readding file in java.
-- > http://akini.mbnet.fi/java/unicodereader/UnicodeReader.java.txt
+- >http://akini.mbnet.fi/java/unicodereader/UnicodeReader.java.txt
 - Simple UI.
 
 ##calibre 
