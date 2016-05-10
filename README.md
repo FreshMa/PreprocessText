@@ -1,10 +1,14 @@
 # TXT2MOBI
+This is a program to convert .txt to .mobi,and Calibre is recommended.
+First,use java to preprocessing the text files.Then use Calibre to convert,the CSS is attached below.
 
 ##txt pre-processing
-java code
+Package PreprocessText includes three java files which provide a tool to pre-processing txt files.
+And txt files are recommended to be saved as utf-8.
+Simple UI.
 
 ##calibre 
-MYcss:
+MyCSS:
 <pre>
 <code>
 body { margin: 0; }
