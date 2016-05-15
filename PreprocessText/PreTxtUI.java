@@ -44,8 +44,8 @@ public class PreTxtUI extends JFrame {
 	private File file;
 	private File imFile;
 	private File desFile;
-	private String encoding = "utf-8";
-	private String dirName = "D:/KPP";
+	private String filePath ;
+
 
 	
 	public PreTxtUI(){
@@ -53,15 +53,15 @@ public class PreTxtUI extends JFrame {
 		setSize(500,200);
 		
 		menuBar = new JMenuBar();
-		openMenu = new JMenu("file");
-		aboutMenu = new JMenu("about");
-		open = new JMenuItem("open");
-		about = new JMenuItem("about");
+		openMenu = new JMenu("文件");
+		aboutMenu = new JMenu("关于");
+		open = new JMenuItem("打开");
+		about = new JMenuItem("关于");
 		labelPanel = new JPanel();
 		buttonPanel = new JPanel();
 		MessageLabel = new JLabel();
-		spaceButton = new JButton("del space");
-		chapterButton = new JButton("detect chapter");
+		spaceButton = new JButton("删除空格");
+		chapterButton = new JButton("章节标记");
 //按钮一开始不可点击
 		spaceButton.setEnabled(false);
 		chapterButton.setEnabled(false);
@@ -76,7 +76,7 @@ public class PreTxtUI extends JFrame {
 		buttonPanel.add(spaceButton);
 		buttonPanel.add(chapterButton);
 		
-		setLabel("CAUTION:.txt file should be saved as utf-8");
+		setLabel("txt文档最好采用utf-8编码(记事本编辑一下即可)");
 		
 		this.setJMenuBar(menuBar);
 		this.add(labelPanel, BorderLayout.CENTER);
@@ -111,6 +111,7 @@ public class PreTxtUI extends JFrame {
 				//System.out.println(fileChooser.getSelectedFile().getName());
 				if(file.isFile()&&file.exists()){
 					setLabel(file.getPath() +" is selected!");
+					filePath = file.getParent();
 					//选中文件之后可以点击去除空格
 					spaceButton.setEnabled(true);
 				}
@@ -132,7 +133,7 @@ public class PreTxtUI extends JFrame {
 					BufferedReader bfReader = new BufferedReader(new UnicodeReader(in, Charset.defaultCharset().name()));
 					
 					String lineTxt = null;
-					String outFileDes = "D:/imFile.txt";
+					String outFileDes = filePath+"/imFile.txt";
 					String spaceRegex = "(^[\\s|　]*)(.*)";
 					Pattern spacePattern = Pattern.compile(spaceRegex);
 					imFile = new File(outFileDes);
@@ -156,7 +157,7 @@ public class PreTxtUI extends JFrame {
 					}
 					out.close();
 					bfReader.close();
-					setLabel("space replace Success");
+					setLabel("空格替换完成");
 					//去除空格之后可以加markDown标记
 					chapterButton.setEnabled(true);
 					
@@ -184,7 +185,7 @@ public class PreTxtUI extends JFrame {
 					Pattern chaPattern = Pattern.compile(desRegexChap);
 					
 					
-					String desFileName = "D:/desFile.txt";
+					String desFileName = filePath+"/new"+file.getName();
 					desFile = new File(desFileName);
 					desFile.createNewFile();
 					
@@ -213,7 +214,7 @@ public class PreTxtUI extends JFrame {
 					if(imFile.isFile()&&imFile.exists()){
 						imFile.delete();
 					}
-					setLabel("chapter MarkDown done");
+					setLabel("章节标记完成");
 				} catch (Exception e2) {
 					// TODO: handle exception
 					System.out.println("open /save destination file error");
