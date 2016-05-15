@@ -6,6 +6,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -33,7 +35,7 @@ import javax.swing.filechooser.FileFilter;
 public class PreTxtUI extends JFrame {
 	private JFileChooser fileChooser;
 	private JLabel MessageLabel;
-	private JButton spaceButton,chapterButton;
+	private JButton spaceButton,chapterButton,copyCss;
 	private JMenuBar menuBar;
 	private JMenu openMenu;
 	private JMenu aboutMenu;
@@ -62,9 +64,11 @@ public class PreTxtUI extends JFrame {
 		MessageLabel = new JLabel();
 		spaceButton = new JButton("删除空格");
 		chapterButton = new JButton("章节标记");
+		copyCss = new JButton("复制css");
 //按钮一开始不可点击
 		spaceButton.setEnabled(false);
 		chapterButton.setEnabled(false);
+		
 		
 		openMenu.add(open);
 		aboutMenu.add(about);
@@ -75,6 +79,7 @@ public class PreTxtUI extends JFrame {
 		labelPanel.add(MessageLabel);
 		buttonPanel.add(spaceButton);
 		buttonPanel.add(chapterButton);
+		buttonPanel.add(copyCss);
 		
 		setLabel("txt文档最好采用utf-8编码(记事本编辑一下即可)");
 		
@@ -215,12 +220,29 @@ public class PreTxtUI extends JFrame {
 						imFile.delete();
 					}
 					setLabel("章节标记完成");
+					
 				} catch (Exception e2) {
 					// TODO: handle exception
 					System.out.println("open /save destination file error");
 					e2.printStackTrace();
 				}
 				
+			}
+		});
+		//增加一键复制css到剪切板按钮
+		copyCss.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String css = "body { margin: 0; }\r\n"+
+				"p {margin-top: 0pt; margin-bottom: 0pt; padding: 0pt; text-indent: 15pt; text-align: justify;}\r\n"+
+				"h1 { text-align: center; padding-top: 350px; page-break-before: always;}\r\n"+
+				"h2 {text-align: center; font-weight: 700; font-size: xx-large; padding-top: 12pt; padding-bottom: 20pt; page-break-before: always;}";
+				
+				StringSelection cssString = new StringSelection(css);
+				Toolkit.getDefaultToolkit().getSystemClipboard().setContents(cssString, null);
+
 			}
 		});
 		
