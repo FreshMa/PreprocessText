@@ -74,8 +74,11 @@ public class PreTxtUI extends JFrame {
 		aboutMenu.add(about);
 		menuBar.add(openMenu);
 		menuBar.add(aboutMenu);
+		
 		labelPanel.setLayout(new GridLayout());
 		buttonPanel.setLayout(new GridLayout());
+		MessageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		labelPanel.add(MessageLabel);
 		buttonPanel.add(spaceButton);
 		buttonPanel.add(chapterButton);
@@ -242,7 +245,7 @@ public class PreTxtUI extends JFrame {
 				
 				StringSelection cssString = new StringSelection(css);
 				Toolkit.getDefaultToolkit().getSystemClipboard().setContents(cssString, null);
-
+				setLable("复制成功！");
 			}
 		});
 		
