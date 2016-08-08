@@ -187,8 +187,8 @@ public class PreTxtUI extends JFrame {
 					BufferedReader desBfReader = new BufferedReader(new UnicodeReader(in2, Charset.defaultCharset().name()));
 					String desLine = null;
 
-					String desRegexVol = "^[　]*第[0123456789一二三四五六七八九十百千]+卷.*";
-					String desRegexChap = "^[　]*第[0123456789一二三四五六七八九十百千]+章.*";
+					String desRegexVol = "^[　]*第[0123456789零一二三四五六七八九十百千]+卷.*";
+					String desRegexChap = "^[　]*第[0123456789零一二三四五六七八九十百千]+章.*";
 					Pattern volPattern = Pattern.compile(desRegexVol);
 					Pattern chaPattern = Pattern.compile(desRegexChap);
 					
